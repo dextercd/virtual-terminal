@@ -1,3 +1,6 @@
+#ifndef PT_VIRTUAL_TERMINAL_HPP
+#define PT_VIRTUAL_TERMINAL_HPP
+
 #include <stdexcept>
 #include <string>
 
@@ -131,3 +134,5 @@ slave_pt_handle open_slave(master_pt_handle& master)
 
 	return slave_pt_handle{slave_native_handle};
 }
+
+#endif // header guard
