@@ -24,12 +24,6 @@ class master_pt_handle {
 	{
 	}
 
-	void close()
-	{
-		if(underlying_fd != no_handle)
-			::close(underlying_fd);
-	}
-
 public:
 	explicit master_pt_handle(std::nullptr_t)
 		: underlying_fd{no_handle}
@@ -54,6 +48,14 @@ public:
 
 	int native_handle() { return underlying_fd; }
 
+	void close()
+	{
+		if(underlying_fd != no_handle) {
+			::close(underlying_fd);
+			underlying_fd = no_handle;
+		}
+	}
+
 	~master_pt_handle()
 	{
 		close();
@@ -69,12 +71,6 @@ class slave_pt_handle {
 	explicit slave_pt_handle(int fd)
 		: underlying_fd{fd}
 	{
-	}
-
-	void close()
-	{
-		if(underlying_fd != no_handle)
-			::close(underlying_fd);
 	}
 
 public:
@@ -100,6 +96,14 @@ public:
 	}
 
 	int native_handle() { return underlying_fd; }
+
+	void close()
+	{
+		if(underlying_fd != no_handle) {
+			::close(underlying_fd);
+			underlying_fd = no_handle;
+		}
+	}
 
 	~slave_pt_handle()
 	{

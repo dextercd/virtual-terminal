@@ -24,7 +24,7 @@ int main()
 
 		if(fork_result == 0) {
 			// child shouldn't access master
-			pseudo_terminal_master = master_pt_handle{nullptr};
+			pseudo_terminal_master.close();
 
 			// connect slave to stdin/stdout/stderr
 			if(dup2(pseudo_terminal_slave.native_handle(), 0) == -1) throw 0;
@@ -44,7 +44,7 @@ int main()
 		const auto child_pid = fork_result;
 
 		// close on master side
-		pseudo_terminal_slave = slave_pt_handle{nullptr};
+		pseudo_terminal_slave.close();
 
 		std::this_thread::sleep_for(std::chrono::seconds{1});
 		char rb[1];
