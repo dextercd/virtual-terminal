@@ -61,7 +61,7 @@ master_pt_handle open_pseudo_terminal()
 {
 	const auto pt_master = posix_openpt(O_RDWR);
 	if(pt_master < 0)
-		throw 1;
+		throw pseudo_terminal_error{"bad pt master handle."};
 
 	return master_pt_handle{pt_master};
 }
