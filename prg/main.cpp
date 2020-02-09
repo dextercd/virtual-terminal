@@ -15,7 +15,7 @@ int main()
 {
 	try {
 		auto pseudo_terminal_master = open_pseudo_terminal();
-		auto pseudo_terminal_slave = open_slave(pseudo_terminal_master);
+		auto pseudo_terminal_slave = pseudo_terminal_master.open_slave();
 
 		const auto fork_result = fork();
 
