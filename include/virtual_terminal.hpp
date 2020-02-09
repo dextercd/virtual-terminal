@@ -8,6 +8,8 @@
 
 #include <fcntl.h>
 
+namespace vt {
+
 struct pseudo_terminal_error : std::runtime_error {
 	using std::runtime_error::runtime_error;
 };
@@ -139,5 +141,6 @@ master_pt_handle open_pseudo_terminal()
 	return master_pt_handle{pt_master};
 }
 
+} // vt::
 
 #endif // header guard
