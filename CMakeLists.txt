@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 project(virtual-console LANGUAGES CXX)
 
 add_library(virtual_console
-	src/virtual_console.cpp
+	src/virtual_terminal.cpp
 )
 
 target_compile_features(virtual_console PUBLIC cxx_std_17)
