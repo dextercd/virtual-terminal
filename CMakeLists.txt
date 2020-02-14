@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(virtual-console LANGUAGES CXX)
+project(virtual-terminal LANGUAGES CXX)
 
-add_library(virtual_console
+add_library(virtual_terminal
 	src/virtual_terminal.cpp
 )
 
@@ -14,4 +14,4 @@ add_executable(program
 	prg/main.cpp
 )
 
-target_link_libraries(program PUBLIC virtual_console)
+target_link_libraries(program PUBLIC virtual_terminal)
