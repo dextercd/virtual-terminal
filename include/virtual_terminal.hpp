@@ -7,6 +7,7 @@
 #include <cstdlib>
 
 #include <fcntl.h>
+#include <unistd.h>
 
 namespace vt {
 
